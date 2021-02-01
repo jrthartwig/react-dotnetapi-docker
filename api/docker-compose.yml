@@ -1,0 +1,32 @@
+
+version: '3.7' #version of docker-compose 
+
+services:
+
+  api:
+    container_name: api
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - '.:/app'
+    ports:
+      - 8080:5001
+    command: ["bash", "-c", "dotnet", "api.dll", "--urls", "https://0.0.0.0:5001"]
+
+
+
+# version: '3.7'
+
+# services:
+
+#   api: 
+#     container_name: api
+#     build: 
+#       context: .
+#       dockerfile: Dockerfile
+#     volumes: 
+#       -'.:/app'
+#     ports: 
+#       - 8080: 5001
+#     command: ["bash". "-c". "dotnet run"]
